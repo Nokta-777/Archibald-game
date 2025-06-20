@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmtn20rj50nk7"]
+
+[ext_resource type="PackedScene" uid="uid://dxta7b5dqcc0k" path="res://scenes/player.tscn" id="1_p70ar"]
+[ext_resource type="PackedScene" uid="uid://cmqy3rcncspna" path="res://scenes/Camera2D_GMTK_ready.tscn" id="2_wuvtx"]
+[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="3_yw53w"]
+[ext_resource type="PackedScene" uid="uid://cptc1abjqe2r4" path="res://scenes/killzone.tscn" id="4_wuvtx"]
+[ext_resource type="PackedScene" uid="uid://cryq8iv2iyytu" path="res://scenes/teleporter.tscn" id="5_ps32x"]
+[ext_resource type="PackedScene" uid="uid://470outrjic1h" path="res://scenes/elephant.tscn" id="6_kb6mr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yw53w"]
+distance = -1093.0
+
+[node name="testing_room" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_p70ar")]
+position = Vector2(811, 27)
+
+[node name="Camera2D" parent="Player" instance=ExtResource("2_wuvtx")]
+zoom = Vector2(0.25, 0.25)
+
+[node name="Platform" parent="." instance=ExtResource("3_yw53w")]
+position = Vector2(390, 519)
+
+[node name="Killzone" parent="." instance=ExtResource("4_wuvtx")]
+position = Vector2(1704, 673)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-1704, -673)
+shape = SubResource("WorldBoundaryShape2D_yw53w")
+
+[node name="teleporter" parent="." instance=ExtResource("5_ps32x")]
+position = Vector2(279, 31)
+
+[node name="Platform2" parent="." instance=ExtResource("3_yw53w")]
+position = Vector2(2429, 504)
+
+[node name="elephant" parent="." instance=ExtResource("6_kb6mr")]
+position = Vector2(2452, -360)

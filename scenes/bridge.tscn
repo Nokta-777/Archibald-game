@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://43c0tb13gs7v"]
+
+[ext_resource type="Texture2D" uid="uid://dvj6a3hv3mn8x" path="res://assets/sprites/ice_ground_green.png" id="1_7ct4w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q54l"]
+size = Vector2(3383, 30.5)
+
+[node name="Bridge" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(13.5001, 0)
+scale = Vector2(1.00796, 1)
+texture = ExtResource("1_7ct4w")
+region_enabled = true
+region_rect = Rect2(272.959, 2186.14, 3390.63, 1307.31)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -432.75)
+shape = SubResource("RectangleShape2D_1q54l")
+one_way_collision = true

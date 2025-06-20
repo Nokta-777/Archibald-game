@@ -1,0 +1,368 @@
+[gd_scene load_steps=22 format=3 uid="uid://bjcojs3ys2lul"]
+
+[ext_resource type="Texture2D" uid="uid://ckmko6ky2d015" path="res://assets/img/bg_01.png" id="1_r7wj8"]
+[ext_resource type="Texture2D" uid="uid://c4wt3m6yi2e6r" path="res://assets/img/bg_04.png" id="2_g6uqv"]
+[ext_resource type="Texture2D" uid="uid://m8ijsrlhnbwf" path="res://assets/img/bg_03.png" id="3_hnnuc"]
+[ext_resource type="Texture2D" uid="uid://dxbuoqv42mmlr" path="res://assets/img/bg_02.png" id="4_c8sub"]
+[ext_resource type="PackedScene" uid="uid://43c0tb13gs7v" path="res://scenes/bridge.tscn" id="5_hva3n"]
+[ext_resource type="PackedScene" uid="uid://dxta7b5dqcc0k" path="res://scenes/player.tscn" id="6_kl22a"]
+[ext_resource type="PackedScene" uid="uid://cmqy3rcncspna" path="res://scenes/Camera2D_GMTK_ready.tscn" id="7_kpy5e"]
+[ext_resource type="PackedScene" uid="uid://cptc1abjqe2r4" path="res://scenes/killzone.tscn" id="8_g6uqv"]
+[ext_resource type="PackedScene" uid="uid://82bt52m3ohoq" path="res://scenes/corniche.tscn" id="9_c8sub"]
+[ext_resource type="PackedScene" uid="uid://cmexbt5p8sd5h" path="res://scenes/blue_bridge.tscn" id="9_kpy5e"]
+[ext_resource type="PackedScene" uid="uid://cgjpwhjfilwd6" path="res://scenes/platform.tscn" id="10_hva3n"]
+[ext_resource type="PackedScene" uid="uid://ha8tyktp4kxc" path="res://scenes/platform_blue.tscn" id="11_hva3n"]
+[ext_resource type="PackedScene" uid="uid://dyjc126m6aka6" path="res://scenes/coin.tscn" id="12_kl22a"]
+[ext_resource type="PackedScene" uid="uid://cryq8iv2iyytu" path="res://scenes/teleporter.tscn" id="13_3jqp1"]
+[ext_resource type="PackedScene" uid="uid://470outrjic1h" path="res://scenes/elephant.tscn" id="13_kpy5e"]
+[ext_resource type="Script" uid="uid://dh3la8abrudvp" path="res://scripts/coin_counter.cs" id="14_8yxcp"]
+
+[sub_resource type="Theme" id="Theme_c8sub"]
+default_font_size = 100
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r7wj8"]
+normal = Vector2(0.999994, 0.0034722)
+distance = 2326.43
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8yxcp"]
+normal = Vector2(-0.999981, 0.00613485)
+distance = -61.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hnnuc"]
+distance = -1946.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8yxcp"]
+a = Vector2(-1715, 1679)
+b = Vector2(13566, 320)
+
+[node name="lvl2" type="Node2D"]
+
+[node name="background" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(1, 1)
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="background"]
+position = Vector2(954, 532)
+scale = Vector2(0.75, 0.75)
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="background/ParallaxLayer"]
+texture = ExtResource("1_r7wj8")
+region_enabled = true
+region_rect = Rect2(1209.4, 135.516, 3094.65, 1782.79)
+
+[node name="midground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(1, 1)
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="midground"]
+position = Vector2(954, 532)
+scale = Vector2(0.75, 0.75)
+motion_scale = Vector2(0.01, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="midground/ParallaxLayer"]
+texture = ExtResource("2_g6uqv")
+region_enabled = true
+region_rect = Rect2(1209.4, 135.516, 3094.65, 1782.79)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="midground"]
+position = Vector2(954, 532)
+scale = Vector2(0.75, 0.75)
+motion_scale = Vector2(0.013, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="midground/ParallaxLayer2"]
+texture = ExtResource("3_hnnuc")
+region_enabled = true
+region_rect = Rect2(1209.4, 135.516, 3094.65, 1782.79)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="midground"]
+position = Vector2(954, 532)
+scale = Vector2(0.75, 0.75)
+motion_scale = Vector2(0.015, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="midground/ParallaxLayer3"]
+position = Vector2(1.33337, 0)
+texture = ExtResource("4_c8sub")
+region_enabled = true
+region_rect = Rect2(1209.4, 135.516, 3094.65, 1782.79)
+
+[node name="Instructions #1" type="Label" parent="."]
+offset_left = 1983.0
+offset_top = -697.0
+offset_right = 3569.0
+offset_bottom = 110.0
+theme = SubResource("Theme_c8sub")
+text = "Jump while on the wall"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instructions #3" type="Label" parent="."]
+offset_left = 16955.0
+offset_top = 13409.0
+offset_right = 18541.0
+offset_bottom = 14216.0
+theme = SubResource("Theme_c8sub")
+text = "Hold the youngling to exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instructions #2" type="Label" parent="."]
+offset_left = 5639.0
+offset_top = 9101.0
+offset_right = 7225.0
+offset_bottom = 9908.0
+theme = SubResource("Theme_c8sub")
+text = "Now release the youngling to 
+have a bonus 200% jump"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instructions #4" type="Label" parent="."]
+offset_left = 3224.0
+offset_top = 13189.0
+offset_right = 4810.0
+offset_bottom = 13996.0
+theme = SubResource("Theme_c8sub")
+text = "Because of its socks, 
+the youngling is able to walk
+on thin ice"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("6_kl22a")]
+position = Vector2(446, 1355)
+
+[node name="Camera2D" parent="Player" instance=ExtResource("7_kpy5e")]
+position = Vector2(-445.151, 0)
+zoom = Vector2(0.25, 0.25)
+limit_left = 0
+limit_right = 18550
+limit_smoothed = true
+
+[node name="LimitLeft" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimitLeft"]
+position = Vector2(-2330, 16)
+shape = SubResource("WorldBoundaryShape2D_r7wj8")
+
+[node name="LimitRight" type="StaticBody2D" parent="."]
+position = Vector2(18545, 1322)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LimitRight"]
+shape = SubResource("WorldBoundaryShape2D_8yxcp")
+
+[node name="Killzone" parent="." instance=ExtResource("8_g6uqv")]
+position = Vector2(-9, 13413)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 187)
+shape = SubResource("WorldBoundaryShape2D_hnnuc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(1728, -11564)
+shape = SubResource("SegmentShape2D_8yxcp")
+
+[node name="The Wall" type="Node2D" parent="."]
+
+[node name="Platform2" parent="The Wall" instance=ExtResource("10_hva3n")]
+position = Vector2(3726, 539)
+rotation = -1.12225
+
+[node name="Platform3" parent="The Wall" instance=ExtResource("10_hva3n")]
+position = Vector2(4212, 250)
+
+[node name="Platform" parent="The Wall" instance=ExtResource("10_hva3n")]
+position = Vector2(14436, -842)
+rotation = -1.5708
+
+[node name="Platform4" parent="The Wall" instance=ExtResource("10_hva3n")]
+position = Vector2(14356, 4909)
+rotation = 1.5708
+
+[node name="Highway to Hell" type="Node2D" parent="."]
+
+[node name="Bridge" parent="Highway to Hell" instance=ExtResource("5_hva3n")]
+position = Vector2(1615, 2016)
+
+[node name="Corniche" parent="Highway to Hell" instance=ExtResource("9_c8sub")]
+position = Vector2(3794, 2198)
+
+[node name="Corniche2" parent="Highway to Hell" instance=ExtResource("9_c8sub")]
+position = Vector2(6116, 430)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="BlueBridge" parent="Highway to Hell" instance=ExtResource("9_kpy5e")]
+position = Vector2(8282, 252)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Bridge2" parent="Highway to Hell" instance=ExtResource("5_hva3n")]
+position = Vector2(11504, 242)
+
+[node name="Corniche3" parent="Highway to Hell" instance=ExtResource("9_c8sub")]
+position = Vector2(13673, 419)
+
+[node name="Platform" parent="Highway to Hell" instance=ExtResource("10_hva3n")]
+position = Vector2(15615, 317)
+
+[node name="Bridge3" parent="Highway to Hell" instance=ExtResource("5_hva3n")]
+position = Vector2(8138, 1867)
+rotation = 0.336849
+
+[node name="Platform2" parent="Highway to Hell" instance=ExtResource("10_hva3n")]
+position = Vector2(6126, 1175)
+
+[node name="Platform3" parent="Highway to Hell" instance=ExtResource("10_hva3n")]
+position = Vector2(9889, 2469)
+
+[node name="Bridge4" parent="Highway to Hell" instance=ExtResource("5_hva3n")]
+position = Vector2(2800, 12026)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Corniche4" parent="Highway to Hell" instance=ExtResource("9_c8sub")]
+position = Vector2(647, 12203)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Bridge5" parent="Highway to Hell" instance=ExtResource("5_hva3n")]
+position = Vector2(6015, 12021)
+
+[node name="Corniche5" parent="Highway to Hell" instance=ExtResource("9_c8sub")]
+position = Vector2(8147, 12205)
+
+[node name="Platform4" parent="Highway to Hell" instance=ExtResource("10_hva3n")]
+position = Vector2(8127, 10277)
+rotation = -0.897099
+
+[node name="Platform5" parent="Highway to Hell" instance=ExtResource("10_hva3n")]
+position = Vector2(5176, 8267)
+rotation = 1.5708
+
+[node name="Platform6" parent="Highway to Hell" instance=ExtResource("10_hva3n")]
+position = Vector2(6613, 7105)
+rotation = 3.14159
+
+[node name="BlueBridge2" parent="Highway to Hell" instance=ExtResource("9_kpy5e")]
+position = Vector2(6035, 14842)
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="Corniche6" parent="Highway to Hell" instance=ExtResource("9_c8sub")]
+position = Vector2(3854, 15018)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="BlueBridge3" parent="Highway to Hell" instance=ExtResource("9_kpy5e")]
+position = Vector2(9241, 14841)
+
+[node name="BlueBridge4" parent="Highway to Hell" instance=ExtResource("9_kpy5e")]
+position = Vector2(12463, 14843)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="BlueBridge5" parent="Highway to Hell" instance=ExtResource("9_kpy5e")]
+position = Vector2(15538, 14851)
+
+[node name="Corniche7" parent="Highway to Hell" instance=ExtResource("9_c8sub")]
+position = Vector2(17714, 15027)
+
+[node name="Bridge6" parent="Highway to Hell" instance=ExtResource("5_hva3n")]
+position = Vector2(9897, 10483)
+rotation = -0.897099
+
+[node name="Bridge7" parent="Highway to Hell" instance=ExtResource("5_hva3n")]
+position = Vector2(17514, 4375)
+rotation = -0.897099
+
+[node name="Corniche8" parent="Highway to Hell" instance=ExtResource("9_c8sub")]
+position = Vector2(18110, 2050)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Platform7" parent="Highway to Hell" instance=ExtResource("10_hva3n")]
+position = Vector2(15587, 5861)
+
+[node name="disappearing_platform" parent="Highway to Hell" instance=ExtResource("11_hva3n")]
+position = Vector2(12940, 5931)
+
+[node name="Platform8" parent="Highway to Hell" instance=ExtResource("10_hva3n")]
+position = Vector2(18676, 14850)
+
+[node name="Money" type="Node2D" parent="."]
+
+[node name="Coin" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(3206, 7)
+
+[node name="Coin3" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(8261, -519)
+
+[node name="Coin4" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(11229, -571)
+
+[node name="Coin5" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(11487, -578)
+
+[node name="Coin6" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(11361, -771)
+
+[node name="Coin7" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(13677, -1215)
+
+[node name="Coin8" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(15575, -327)
+
+[node name="Coin9" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(7418, -1200)
+
+[node name="Coin10" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(9173, -1164)
+
+[node name="Coin11" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(6187, 8001)
+
+[node name="Coin2" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(17004, 1890)
+
+[node name="Coin17" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(18187, 1054)
+
+[node name="Coin12" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(16655, 4050)
+
+[node name="Coin13" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(12940, 5211)
+
+[node name="Coin14" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(11221, 5420)
+
+[node name="Coin18" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(10457, 6545)
+
+[node name="Coin15" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(10079, 7698)
+
+[node name="Coin16" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(6296, 10015)
+
+[node name="Coin19" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(4039, 12790)
+
+[node name="Coin20" parent="Money" instance=ExtResource("12_kl22a")]
+position = Vector2(3950, 13856)
+
+[node name="elephant" parent="." instance=ExtResource("13_kpy5e")]
+position = Vector2(3126, 11138)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 25
+script = ExtResource("14_8yxcp")
+
+[node name="teleporter" parent="." instance=ExtResource("13_3jqp1")]
+position = Vector2(18629, 14380)
+GoToScenePath = "uid://dltbxew8rnwl1"

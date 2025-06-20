@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgjpwhjfilwd6"]
+
+[ext_resource type="Texture2D" uid="uid://dvj6a3hv3mn8x" path="res://assets/sprites/ice_ground_green.png" id="1_ba0x2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba0x2"]
+size = Vector2(1319, 55)
+
+[node name="Platform" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ba0x2")
+region_enabled = true
+region_rect = Rect2(2272.95, 268, 1445.5, 1132.16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16.5, -426.5)
+shape = SubResource("RectangleShape2D_ba0x2")
+one_way_collision = true

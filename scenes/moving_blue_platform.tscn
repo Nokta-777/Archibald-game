@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnwmj0t21gpvj"]
+
+[ext_resource type="Texture2D" uid="uid://dncun4uu0b66o" path="res://assets/sprites/ice_ground_blue.png" id="1_ackca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cphck"]
+size = Vector2(1650, 120.5)
+
+[node name="moving_blue_platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 10)
+scale = Vector2(1.29088, 1.29088)
+texture = ExtResource("1_ackca")
+region_enabled = true
+region_rect = Rect2(2205.25, 49.8519, 1691.51, 1272.41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-51, -327)
+shape = SubResource("RectangleShape2D_cphck")
+one_way_collision = true

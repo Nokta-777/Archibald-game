@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dycb1xe088dcs"]
+
+[ext_resource type="AudioStream" uid="uid://6evdfmchua5d" path="res://assets/sounds/BOUCLE JEU.mp3" id="1_a6gvu"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_a6gvu")
+autoplay = true

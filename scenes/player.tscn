@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxta7b5dqcc0k"]
+
+[ext_resource type="Script" uid="uid://dibstulwcg87c" path="res://scripts/Player_mov.cs" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://470outrjic1h" path="res://scenes/elephant.tscn" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://o1qgacs2oou7" path="res://assets/sprites/traveller.png" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://brhld8jd758br" path="res://assets/sounds/footstep.wav" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://d4m0hiv4efyo8" path="res://assets/sounds/elephant1.wav" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://oy25k3n7p8aj" path="res://assets/sounds/saut50.wav" id="6_tuyoq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 450, 675)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 84.0
+height = 566.0
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
+script = ExtResource("1_g2els")
+ElephantScene = ExtResource("2_dqkch")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -339)
+sprite_frames = SubResource("SpriteFrames_dqkch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29, -304)
+shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="Footstepaudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qhqgy")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="BarrissementSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qlg0r")
+volume_db = 7.932
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_tuyoq")
+volume_db = 8.0
+
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

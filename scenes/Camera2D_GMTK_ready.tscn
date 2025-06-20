@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmqy3rcncspna"]
+
+[node name="Camera2D" type="Camera2D"]
+
+zoom = Vector2(7, 7)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = false
+drag_vertical_enabled = false
+limit_drawing_enabled = false
+lookahead_enabled = true
+lookahead_distance = Vector2(0.1, 0)
+ignore_vertical_lookahead = true
+current = true
